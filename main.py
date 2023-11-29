@@ -1,5 +1,7 @@
 import openai
-openai.api_key = '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'
+from my_moduls.config_handler import ConfigHandler
+config_handler = ConfigHandler()
+openai.api_key = config_handler.get_value(["api_keys", "openAI", "key"])
 
 if __name__ == '__main__':
     response = openai.chat.completions.create(
